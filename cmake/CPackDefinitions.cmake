@@ -89,8 +89,11 @@ if(WIN32)    # TODO
 		set(CPACK_GENERATOR "NSIS") # this needs NSIS installed, and available
 	endif()
 	set(CPACK_SOURCE_GENERATOR "ZIP")
-elseif( ${CMAKE_SYSTEM_NAME} MATCHES "Darwin")   # TODO
-	set(CPACK_GENERATOR "PackageMake")
+elseif( ${CMAKE_SYSTEM_NAME} MATCHES "Darwin" OR APPLE)
+	set(CPACK_GENERATOR "DragNDrop;productbuild")
+	set(CPACK_DMG_VOLUME_NAME "Veyon")
+	set(CPACK_PACKAGE_FILE_NAME "veyon-${CPACK_PACKAGE_VERSION}-macos")
+	set(CPACK_SOURCE_GENERATOR "TGZ")
 else()
 	if(EXISTS /etc/redhat-release OR EXISTS /etc/fedora-release OR OS_OPENSUSE)
 		set(CPACK_RPM_FILE_NAME "RPM-DEFAULT")

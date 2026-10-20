@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>PayloadContent</key>
+    <array>
+        <!-- Payload 1: TCC Screen Recording Permission -->
+        <dict>
+            <key>PayloadType</key>
+            <string>com.apple.TCC.configuration-profile-policy</string>
+            <key>PayloadVersion</key>
+            <integer>1</integer>
+            <key>PayloadIdentifier</key>
+            <string>io.veyon.tcc.screencapture</string>
+            <key>PayloadUUID</key>
+            <string>A1B2C3D4-E5F6-7890-ABCD-EF1234567890</string>
+
+            <key>Services</key>
+            <dict>
+                <key>ScreenCapture</key>
+                <array>
+                    <dict>
+                        <key>Identifier</key>
+                        <string>@CMAKE_INSTALL_PREFIX@/bin/veyon-server</string>
+                        <key>IdentifierType</key>
+                        <string>path</string>
+                        <key>Allowed</key>
+                        <true/>
+                        <key>Comment</key>
+                        <string>Veyon Server screen capture</string>
+                    </dict>
+                    <dict>
+                        <key>Identifier</key>
+                        <string>@CMAKE_INSTALL_PREFIX@/bin/veyon-service</string>
+                        <key>IdentifierType</key>
+                        <string>path</string>
+                        <key>Allowed</key>
+                        <true/>
+                        <key>Comment</key>
+                        <string>Veyon Service daemon</string>
+                    </dict>
+                </array>
+
+                <key>Accessibility</key>
+                <array>
+                    <dict>
+                        <key>Identifier</key>
+                        <string>@CMAKE_INSTALL_PREFIX@/bin/veyon-server</string>
+                        <key>IdentifierType</key>
+                        <string>path</string>
+                        <key>Allowed</key>
+                        <true/>
+                        <key>Comment</key>
+                        <string>Veyon Server input injection</string>
+                    </dict>
+                </array>
+            </dict>
+        </dict>
+    </array>
+
+    <key>PayloadDisplayName</key>
+    <string>Veyon Classroom Monitoring</string>
+    <key>PayloadIdentifier</key>
+    <string>io.veyon.mdm.profile</string>
+    <key>PayloadType</key>
+    <string>Configuration</string>
+    <key>PayloadUUID</key>
+    <string>C3D4E5F6-A7B8-9012-CDEF-345678901234</string>
+    <key>PayloadVersion</key>
+    <integer>1</integer>
+    <key>PayloadOrganization</key>
+    <string>Veyon Solutions</string>
+    <key>PayloadDescription</key>
+    <string>Configures screen recording and accessibility permissions for Veyon classroom monitoring.</string>
+</dict>
+</plist>

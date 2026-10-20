@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN"
+  "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>io.veyon.service</string>
+
+    <key>ProgramArguments</key>
+    <array>
+        <string>@CMAKE_INSTALL_PREFIX@/bin/veyon-service</string>
+    </array>
+
+    <!-- Start at boot, before any user logs in -->
+    <key>RunAtLoad</key>
+    <true/>
+
+    <!-- Restart on crash, with throttle -->
+    <key>KeepAlive</key>
+    <dict>
+        <key>SuccessfulExit</key>
+        <false/>
+    </dict>
+
+    <!-- Throttle restarts: wait 5 seconds between launches -->
+    <key>ThrottleInterval</key>
+    <integer>5</integer>
+
+    <!-- Run as root -->
+    <key>UserName</key>
+    <string>root</string>
+    <key>GroupName</key>
+    <string>wheel</string>
+
+    <!-- Logging -->
+    <key>StandardOutPath</key>
+    <string>/var/log/veyon-service.log</string>
+    <key>StandardErrorPath</key>
+    <string>/var/log/veyon-service.err</string>
+
+    <!-- Prevent App Nap (critical for background processing) -->
+    <key>ProcessType</key>
+    <string>Interactive</string>
+
+    <!-- Environment for headless Qt -->
+    <key>EnvironmentVariables</key>
+    <dict>
+        <key>QT_QPA_PLATFORM</key>
+        <string>offscreen</string>
+    </dict>
+</dict>
+</plist>
